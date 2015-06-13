@@ -6,6 +6,7 @@ function love.load()
 	gamestate = "menu"
 	menu.load()
 	player.load()
+	world.load()
 end
 
 function love.update()
@@ -19,6 +20,7 @@ function love.update()
 	
 	if gamestate == "playing" then
 		player.update()
+		world.update()
 	end
 end
 
@@ -29,5 +31,6 @@ function love.draw()
 	
 	if gamestate == "playing" then
 		player.draw()
+		world.draw()
 	end
 end
