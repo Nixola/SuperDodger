@@ -7,6 +7,7 @@ end
 
 function player.update()
 	player.keypress()
+	player.boundary()
 end
 
 function player.keypress()
@@ -16,6 +17,16 @@ function player.keypress()
 	
 	if love.keyboard.isDown( 'down' ) then
 		player.y = player.y + 5
+	end
+end
+
+function player.boundary()
+	if player.y > love.graphics.getHeight() then
+		player.y = 1
+	end
+	
+	if player.y < 1 then
+		player.y = love.graphics.getHeight()
 	end
 end
 
