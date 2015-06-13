@@ -1,5 +1,6 @@
 require "player"
 require "menu"
+require "world"
 
 function love.load()
 	gamestate = "menu"
