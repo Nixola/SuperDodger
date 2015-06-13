@@ -6,7 +6,17 @@ function player.load()
 end
 
 function player.update()
+	player.keypress()
+end
 
+function player.keypress()
+	if love.keyboard.isDown( 'up' ) then
+		player.y = player.y - 5
+	end
+	
+	if love.keyboard.isDown( 'down' ) then
+		player.y = player.y + 5
+	end
 end
 
 function player.draw()
