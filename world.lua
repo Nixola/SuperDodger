@@ -9,7 +9,26 @@ function world.update()
 end
 
 function world.draw()
-
+	for i, v in ipairs(worldData) do
+		if v.C1 == true then
+			love.graphics.rectangle("fill", love.graphics.getWidth() - 100, 0, v.length, love.graphics.getHeight()/6)
+		end
+		if v.C2 == true then
+			love.graphics.rectangle("fill", love.graphics.getWidth() - 100, love.graphics.getHeight()/6, v.length, love.graphics.getHeight()/6)
+		end
+		if v.C3 == true then
+			love.graphics.rectangle("fill", love.graphics.getWidth() - 100, 2*love.graphics.getHeight()/6, v.length, love.graphics.getHeight()/6)
+		end
+		if v.C4 == true then
+			love.graphics.rectangle("fill", love.graphics.getWidth() - 100, 3*love.graphics.getHeight()/6, v.length, love.graphics.getHeight()/6)
+		end
+		if v.C5 == true then
+			love.graphics.rectangle("fill", love.graphics.getWidth() - 100, 4*love.graphics.getHeight()/6, v.length, love.graphics.getHeight()/6)
+		end
+		if v.C6 == true then
+			love.graphics.rectangle("fill", love.graphics.getWidth() - 100, 5*love.graphics.getHeight()/6, v.length, love.graphics.getHeight()/6)
+		end
+	end
 end
 
 worldData = {}
