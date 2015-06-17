@@ -47,6 +47,7 @@ function world.loadData()
 	
 	
 	
+	worldData.spawn(1, 1, true, true, true, false, true, true, segment11x) --an example segment piece
 	
 end
 
