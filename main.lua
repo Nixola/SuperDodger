@@ -9,7 +9,7 @@ function love.load()
 	world.load()
 end
 
-function love.update()
+function love.update(dt)
 	if love.keyboard.isDown('escape') then
 		love.event.quit()
 	end
@@ -20,7 +20,7 @@ function love.update()
 	
 	if gamestate == "playing" then
 		player.update()
-		world.update()
+		world.update(dt)
 	end
 end
 
