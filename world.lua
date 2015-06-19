@@ -5,35 +5,36 @@ function world.load()
 end
 
 function world.update( dt )
-	--segment11x = segment11x - 10 * dt
-	segmentNo = love.math.random( 0, 0	)
-	
-	for i, v in ipairs(worldData) do
-		v.segmentx = v.segmentx - 100 * dt
-	end
+  for i, block in ipairs(worldData) do
+    block.segmentx = block.segmentx - love.graphics.getWidth()*0.1 * dt
+    if block.segmentx - love.graphics.getWidth()/10 < 0 then
+      block.segmentx = love.graphics.getWidth()
+    end
+  end
 end
 
 function world.draw()
 	for i, v in ipairs(worldData) do
+		width = love.graphics.getWidth()
 		love.graphics.setColor(0, 0, 255)
-		if v.segmentx < love.graphics.getWidth() and 0 < v.segmentx then
+		if v.segmentx < width and -100 < v.segmentx then
 			if v.C1 == true then
-				love.graphics.rectangle("fill", v.segmentx, 0, 100, love.graphics.getHeight()/6)
+				love.graphics.rectangle("fill", v.segmentx, 0, 0.1 * width, love.graphics.getHeight()/6)
 			end
 			if v.C2 == true then
-				love.graphics.rectangle("fill", v.segmentx, love.graphics.getHeight()/6, 100, love.graphics.getHeight()/6)
+				love.graphics.rectangle("fill", v.segmentx, love.graphics.getHeight()/6, 0.1 * width, love.graphics.getHeight()/6)
 			end
 			if v.C3 == true then
-				love.graphics.rectangle("fill", v.segmentx, 2*love.graphics.getHeight()/6, 100, love.graphics.getHeight()/6)
+				love.graphics.rectangle("fill", v.segmentx, 2*love.graphics.getHeight()/6, 0.1 * width, love.graphics.getHeight()/6)
 			end
 			if v.C4 == true then
-				love.graphics.rectangle("fill", v.segmentx, 3*love.graphics.getHeight()/6, 100, love.graphics.getHeight()/6)
+				love.graphics.rectangle("fill", v.segmentx, 3*love.graphics.getHeight()/6, 0.1 * width, love.graphics.getHeight()/6)
 			end
 			if v.C5 == true then
-				love.graphics.rectangle("fill", v.segmentx, 4*love.graphics.getHeight()/6, 100, love.graphics.getHeight()/6)
+				love.graphics.rectangle("fill", v.segmentx, 4*love.graphics.getHeight()/6, 0.1 * width, love.graphics.getHeight()/6)
 			end
 			if v.C6 == true then
-				love.graphics.rectangle("fill", v.segmentx, 5*love.graphics.getHeight()/6, 100, love.graphics.getHeight()/6)
+				love.graphics.rectangle("fill", v.segmentx, 5*love.graphics.getHeight()/6, 0.1 * width, love.graphics.getHeight()/6)
 			end
 		end
 	end
@@ -43,11 +44,8 @@ worldData = {}
 
 function world.loadData()
 	
-	segment11x = love.graphics.getWidth()
-	
-	
-	
-	worldData.spawn(1, 1, true, true, true, false, true, true, segment11x) --an example segment piece
+	worldData.spawn(1, 1, true, true, true, false, true, true, love.graphics.getWidth()) --an example segment piece
+	worldData.spawn(1, 2, false, false, false, false, false, false, love.graphics.getWidth())
 	
 end
 
