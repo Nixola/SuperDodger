@@ -8,7 +8,7 @@ function world.update( dt )
   for i, block in ipairs(worldData) do
     block.segmentx = block.segmentx - love.graphics.getWidth()*0.1 * dt
     if block.segmentx - love.graphics.getWidth()/10 < 0 then
-      block.segmentx = love.graphics.getWidth()
+      block.segmentx = love.graphics.getWidth() -- the block can't reach the player, ever, and it gets back at the edge of screen when it's about to. Is this the intended behaviour?
     end
   end
 end
@@ -45,7 +45,7 @@ worldData = {}
 function world.loadData()
 	
 	worldData.spawn(1, 1, true, true, true, false, true, true, love.graphics.getWidth()) --an example segment piece
-	worldData.spawn(1, 2, false, false, false, false, false, false, love.graphics.getWidth())
+	worldData.spawn(1, 2, false, true, false, false, false, false, love.graphics.getWidth() + 256) -- the issue was here. You were spawning the blocks in the exact same place, you need to differentiate this a bit.
 	
 end
 
